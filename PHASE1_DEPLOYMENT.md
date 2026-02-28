@@ -62,9 +62,6 @@ And these columns were added:
 
 In Supabase Dashboard → Edge Functions → Secrets, add:
 
-SUPABASE_URL=https://lydqndwveizryjoyzugt.supabase.co
-SUPABASE_SERVICE_ROLE_KEY=sb_secret_W8XcRRT8EJo9cUvNOc_1ag_MPcjq2_I
-```
 
 ### Deploy the Function
 
