@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head><title>Sentinel Login Helper</title></head>
+<body style="font-family:sans-serif;padding:40px;background:#111;color:#fff">
+<h2>Sentinel Portal - Direct Login</h2>
+<p>Click the button to sign in, then go to <a href="http://localhost:3000/dashboard" style="color:#3b82f6">localhost:3000/dashboard</a></p>
+<button id="btn" style="padding:16px 32px;font-size:18px;background:#3b82f6;color:#fff;border:none;border-radius:8px;cursor:pointer">
+  Sign In Now
+</button>
+<pre id="output" style="margin-top:20px;padding:16px;background:#222;border-radius:8px;overflow:auto"></pre>
+
+<script type="module">
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+
+const supabase = createClient(
+  'https://lydqndwveizryjoyzugt.supabase.co',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx5ZHFuZHd2ZWl6cnlqb3l6dWd0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjkwODA4MjgsImV4cCI6MjA4NDY1NjgyOH0.4rblpwVqa13rPcZvR5rqdA74bUUPUuUJtgfkMHWULa0'
+)
+
+document.getElementById('btn').addEventListener('click', async () => {
+  const output = document.getElementById('output')
+  output.textContent = 'Signing in...'
+  
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email: 'christianshaw012@gmail.com',
+    password: 'Sentinel2026'
+  })
+  
+  if (error) {
+    output.textContent = 'ERROR: ' + error.message
+  } else {
+    output.textContent = 'SUCCESS! Session created.\n\nAccess Token: ' + data.session.access_token.substring(0, 50) + '...\n\nNow go to localhost:3000/dashboard'
+    // Store in localStorage so the portal can pick it up
+    localStorage.setItem('sb-lydqndwveizryjoyzugt-auth-token', JSON.stringify({
+      access_token: data.session.access_token,
+      refresh_token: data.session.refresh_token,
+      expires_at: data.session.expires_at,
+      expires_in: data.session.expires_in,
+      token_type: 'bearer',
+      user: data.user
+    }))
+  }
+})
+</script>
+</body>
+</html>
