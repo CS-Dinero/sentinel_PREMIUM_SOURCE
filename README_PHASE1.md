@@ -75,10 +75,6 @@ Phase 1 has been successfully implemented with the following components:
 ### 2. Deploy Edge Function
 
 **Set Environment Variables** in Supabase Dashboard → Edge Functions → Secrets:
-```
-SUPABASE_URL=https://lydqndwveizryjoyzugt.supabase.co
-SUPABASE_SERVICE_ROLE_KEY=sb_secret_W8XcRRT8EJo9cUvNOc_1ag_MPcjq2_I
-```
 
 **Deploy**:
 ```bash
