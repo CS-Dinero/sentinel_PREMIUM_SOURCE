@@ -77,6 +77,7 @@ Phase 1 has been successfully implemented with the following components:
 **Set Environment Variables** in Supabase Dashboard → Edge Functions → Secrets:
 
 **Deploy**:
+
 ```bash
 cd /home/ubuntu/sentinel_portal
 npx supabase functions deploy portal-gateway --project-ref lydqndwveizryjoyzugt
