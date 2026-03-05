@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { Toaster } from '@/components/ui/sonner'
+import { SpeedInsights } from '@vercel/speed-insights/react'
 import { AuthProvider, useAuth } from '@/lib/auth'
 import { AppShell } from '@/components/AppShell'
 import { Login } from '@/pages/Login'
@@ -91,6 +92,7 @@ function App() {
       <Router>
         <AppContent />
         <Toaster position="top-right" richColors theme="dark" />
+        <SpeedInsights />
       </Router>
     </AuthProvider>
   )
