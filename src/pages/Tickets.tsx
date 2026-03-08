@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { 
-  Ticket, 
-  Plus, 
-  MessageSquare, 
-  Clock, 
-  CheckCircle2, 
+  Ticket,
+  Plus,
+  MessageSquare,
+  Clock,
+  CheckCircle2,
   AlertCircle,
   Search,
   Filter,
   Loader2,
-  X
+  X,
+  Zap
 } from 'lucide-react'
 import { api } from '@/lib/api'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -271,8 +272,7 @@ export function Tickets() {
                 {isSubmitting ? <Loader2 size={18} className="animate-spin" /> : (
                   <>
                     Launch Signal
-                    <Zap size={14} />
-                  </>
+</>
                 )}
               </Button>
             </div>
